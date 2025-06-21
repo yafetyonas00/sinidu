@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinidu Electric - Premium Electrical Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --color-primary-red: #FF0000;
+            --color-primary-blue: #0000FF;
+            --color-dark-blue: #00008B;
+            --color-light-blue: #ADD8E6;
+            --color-light-gray: #F5F5F5;
+            --color-white: #FFFFFF;
+            --color-black: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--color-primary-blue);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: var(--color-dark-blue);
+            transform: translateY(-2px);
+        }
+        
+        .btn-red {
+            background-color: var(--color-primary-red);
+        }
+        
+        .btn-red:hover {
+            background-color: #CC0000;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 28px;
+        }
+        
+        h2 {
+            font-size: 24px;
+        }
+        
+        /* Header Styles - Mobile First */
+        header {
+            background-color: var(--color-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 10px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-dark-blue);
+            margin-bottom: 10px;
+        }
+        
+        .logo img {
+            max-height: 50px;
+        }
+        
+        .logo span {
+            color: var(--color-primary-red);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        
+        .nav-links li {
+            margin: 0 10px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-primary-red);
+        }
+        
+        .nav-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .nav-icons a {
+            margin: 0 10px;
+            font-size: 18px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 0, 139, 0.8) 0%, rgba(255, 0, 0, 0.8) 100%), url('https://images.unsplash.com/photo-1614064542340-413740f3323a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 16px;
+            max-width: 90%;
+            margin: 0 auto 25px;
+        }
+        
+        /* Categories Section */
+        .categories {
+            background-color: var(--color-light-gray);
+            text-align: center;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--color-dark-blue);
+        }
+        
+        .section-title span {
+            color: var(--color-primary-red);
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .category-card {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-img {
+            height: 120px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .category-info {
+            padding: 15px;
+        }
+        
+        .category-info h3 {
+            margin-bottom: 8px;
+            color: var(--color-dark-blue);
+            font-size: 16px;
+        }
+        
+        /* Products Section */
+        .products {
+            background-color: var(--color-white);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .product-card {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background-color: var(--color-primary-red);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+        
+        .product-img {
+            height: 150px;
+            width: 100%;
+            object-fit: contain;
+            padding: 15px;
+            background-color: var(--color-light-gray);
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 8px;
+            color: var(--color-dark-blue);
+            font-size: 16px;
+        }
+        
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-primary-red);
+            margin-bottom: 10px;
+        }
+        
+        .product-price span {
+            color: var(--color-black);
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+        
+        .product-card .btn {
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-dark-blue);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            color: var(--color-white);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--color-primary-red);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--color-primary-red);
+            transform: translateY(-3px);
+        }
+        
+        /* View All Button */
+        .view-all {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-dark-blue);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Responsive Adjustments */
+        @media (min-width: 576px) {
+            .category-grid, .product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .logo {
+                margin-bottom: 0;
+            }
+            
+            .nav-links {
+                margin: 0;
+                flex-direction: row;
+            }
+            
+            .nav-icons {
+                margin-top: 0;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .category-grid, .product-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 36px;
+            }
+            
+            h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .navbar {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <a href="#home" class="logo"><img src="image/logo (2).jpg" alt="Sinidu Electric"></a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Premium Electrical Products</h1>
+            <p>Discover our high-quality cables, switches, LED lights and more at competitive prices. Power up your space with Sinidu Electric.</p>
+            <a href="#products" class="btn btn-red">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Our <span>Categories</span></h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="cables">
+                    <img src="image/cables.jfif" alt="Cables" class="category-img">
+                    <div class="category-info">
+                        <h3>Cables & Wires</h3>
+                    </div>
+                </div>
+                <div class="category-card" data-category="switches">
+                    <img src="image/light switches.webp" alt="Light Switches" class="category-img">
+                    <div class="category-info">
+                        <h3>Light Switches</h3>
+                    </div>
+                </div>
+                <div class="category-card" data-category="bulbs">
+                    <img src="image/light bulbs.avif" alt="Light Bulbs" class="category-img">
+                    <div class="category-info">
+                        <h3>Light Bulbs</h3>
+                    </div>
+                </div>
+                <div class="category-card" data-category="led">
+                    <img src="image/led panel lights.webp" alt="LED Panels" class="category-img">
+                    <div class="category-info">
+                        <h3>LED Panels</h3>
+                    </div>
+                </div>
+                <div class="category-card" data-category="dividers">
+                    <img src="image/dividers.webp" alt="Dividers & Conduits" class="category-img">
+                    <div class="category-info">
+                        <h3>Dividers & Conduits</h3>
+                    </div>
+                </div>
+                <div class="category-card" data-category="accessories">
+                    <img src="image/others.webp" alt="Accessories" class="category-img">
+                    <div class="category-info">
+                        <h3>Other Accessories</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Products</span></h2>
+            <div class="product-grid">
+                <!-- Cables & Wires Products -->
+                <div class="product-card">
+                    <img src="image/juxtion box.jpg" alt="Junction Box" class="product-img">
+                    <div class="product-info">
+                        <h3>Junction Box</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/phases bar.jpg" alt="Phases Bar" class="product-img">
+                    <div class="product-info">
+                        <h3>Phases Bar</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/bus bar.jpg" alt="Bus Bar" class="product-img">
+                    <div class="product-info">
+                        <h3>Bus Bar</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/warning light.jpg" alt="Warning Light" class="product-img">
+                    <div class="product-info">
+                        <h3>Warning Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Light Switches Products -->
+                <div class="product-card">
+                    <img src="image/emergency light.jpg" alt="Emergency Light" class="product-img">
+                    <div class="product-info">
+                        <h3>Emergency Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/indicator lamp.jpg" alt="Indicator Lamp" class="product-img">
+                    <div class="product-info">
+                        <h3>Indicator Lamp</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/selector swich.jpg" alt="Selector Switch" class="product-img">
+                    <div class="product-info">
+                        <h3>Selector Switch</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/push botton.jpg" alt="Push Button" class="product-img">
+                    <div class="product-info">
+                        <h3>Push Button</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- Light Bulbs -->
+                <div class="product-card">
+                    <img src="image/phases sequence.jpg" alt="Phases Sequence" class="product-img">
+                    <div class="product-info">
+                        <h3>Phases Sequence</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/cable luge copper.jpg" alt="Cable LUGE Copper" class="product-img">
+                    <div class="product-info">
+                        <h3>Cable LUGE</h3>
+                        <p>Copper type</p>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/cable lege sceur.jpg" alt="Cable LUGE Sceur" class="product-img">
+                    <div class="product-info">
+                        <h3>Cable LUGE</h3>
+                        <p>Sceur Type</p>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/metal board.jpg" alt="Metal Board" class="product-img">
+                    <div class="product-info">
+                        <h3>Metal Board</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <!-- LED Panels -->
+                <div class="product-card">
+                    <img src="image/square lamp.jpg" alt="Square Lamp" class="product-img">
+                    <div class="product-info">
+                        <h3>Square Lamp</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/Temperature Controller.jpg" alt="Temperature Controller" class="product-img">
+                    <div class="product-info">
+                        <h3>Temperature Controller</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/Contactor.jpg" alt="Contactor" class="product-img">
+                    <div class="product-info">
+                        <h3>Contactor</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/digital pannel matter.jpg" alt="Digital Panel Matter" class="product-img">
+                    <div class="product-info">
+                        <h3>Digital Panel Matter</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+
+                <div class="product-card">
+                    <img src="image/Panel light.jpg" alt="Panel Light" class="product-img">
+                    <div class="product-info">
+                        <h3>Panel Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/spot light.jpg" alt="Spot Light" class="product-img">
+                    <div class="product-info">
+                        <h3>Spot Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/temperature control switch.jpg" alt="Temperature Control Switch" class="product-img">
+                    <div class="product-info">
+                        <h3>Temperature Control Switch</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="image/blue cable.jpg" alt="Blue Cable" class="product-img">
+                    <div class="product-info">
+                        <h3>Blue Cable</h3>
+                        <p>50m</p>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/red cable.jpg" alt="Red Cable" class="product-img">
+                    <div class="product-info">
+                        <h3>Red Cable</h3>
+                        <p>50m</p>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/black cable.jpg" alt="Black Cable" class="product-img">
+                    <div class="product-info">
+                        <h3>Black Cable</h3>
+                        <p>50m</p>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/yellow cable.jpg" alt="Yellow Cable" class="product-img">
+                    <div class="product-info">
+                        <h3>Yellow Cable</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/socket.jpg" alt="Socket" class="product-img">
+                    <div class="product-info">
+                        <h3>Normal Socket</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <img src="image/blue industrial socket 1.jpg" alt="Blue Industrial Socket" class="product-img">
+                    <div class="product-info">
+                        <h3>Blue Industrial Socket</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/red industrial socket 2.jpg" alt="Red Industrial Socket" class="product-img">
+                    <div class="product-info">
+                        <h3>Red Industrial Socket</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/powza led.jpg" alt="Powza LED" class="product-img">
+                    <div class="product-info">
+                        <h3>Powza LED Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/led light1.jpg" alt="LED Light Bulb" class="product-img">
+                    <div class="product-info">
+                        <h3>LED Light Bulb</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/street led light.jpg" alt="Street LED Light" class="product-img">
+                    <div class="product-info">
+                        <h3>Street LED Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/siren.jpg" alt="Siren" class="product-img">
+                    <div class="product-info">
+                        <h3>Siren</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/triple breaker.jpg" alt="Triple Breaker" class="product-img">
+                    <div class="product-info">
+                        <h3>Triple Breaker</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/Divider1.jpg" alt="Divider" class="product-img">
+                    <div class="product-info">
+                        <h3>Divider</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/Divider2.jpg" alt="Divider" class="product-img">
+                    <div class="product-info">
+                        <h3>Divider</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/wall socket.jpg" alt="Wall Socket" class="product-img">
+                    <div class="product-info">
+                        <h3>Wall Socket</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/switch1.jpg" alt="Light Switch" class="product-img">
+                    <div class="product-info">
+                        <h3>Light Switch</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/exit light.jpg" alt="LED Exit Light" class="product-img">
+                    <div class="product-info">
+                        <h3>LED Exit Light</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/single breaker.jpg" alt="Single Breaker" class="product-img">
+                    <div class="product-info">
+                        <h3>Single Breaker</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-badge">New</div>
+                    <img src="image/led light2.jpg" alt="LED Light Bulb" class="product-img">
+                    <div class="product-info">
+                        <h3>LED Light Bulb</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="image/stabilizer.jpg" alt="Stabilizer" class="product-img">
+                    <div class="product-info">
+                        <h3>Stabilizer</h3>
+                        <div class="product-price">Br0.00</div>
+                        <a href="#" class="btn">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Sinidu Electric</h3>
+                    <p>Your trusted source for high-quality electrical products since 2010.</p>
+                    <div class="social-links">
+                        <a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="http://x.com"><i class="fab fa-twitter"></i></a>
+                        <a href="http://instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="http://linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3 id="contact">Contact Info</h3>
+                    <ul>
+                        <li>123 Electric Avenue</li>
+                        <li>Addis Ababa, Ethiopia</li>
+                        <li>Phone: +251 911 210 008</li>
+                        <li>Email: siniduelectronics@gmail.com</li>
+                        <li>Hours: Mon-Fri 9am-6pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Sinidu Electric. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Category functionality
+            const categoryCards = document.querySelectorAll('.category-card');
+            const productsSection = document.getElementById('products');
+            
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+
+                    productsSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
